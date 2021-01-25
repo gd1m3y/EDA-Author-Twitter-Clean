@@ -47,3 +47,18 @@ def get_top_n(dict_elem, n):
         return_dict[x] = y
       
     return return_dict
+
+
+
+
+def get_top_author_keywords(author_frame,n):
+  """
+  authorframe: frame representing the author
+  n:no of keywords
+  takes in the author frame and returns top n keywords used by author
+  """
+  print("Top {} keywords used by {} in their recent tweets".format(n,author_frame.author_name.iloc[0]))
+  doc = ""
+  for i in range(len(author_frame.tweet.iloc[0])):
+    doc+=author_frame.tweet.iloc[0][str(i)]['text']
+  print(get_keywords(doc,n))
